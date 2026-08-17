@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign in | Humara Ghar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+<div class="auth-layout">
+
+    <!-- LEFT SIDE -->
+    <section class="auth-image">
+
+        <a href="index.html" class="auth-brand">
+            <span>HG</span>
+            HUMARA GHAR
+        </a>
+
+        <div class="image-copy">
+
+            <small>WELCOME BACK</small>
+
+            <h1>
+                Good homes<br>
+                start with good<br>
+                <em>searches.</em>
+            </h1>
+
+            <p>
+                Pick up where you left off.
+                Your saved homes, visits and conversations
+                are waiting.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- RIGHT SIDE -->
+    <section class="auth-side">
+
+        <div class="auth-box">
+
+            <a class="mobile-brand" href="index.html">
+                HG · HUMARA GHAR
+            </a>
+
+            <div class="auth-heading">
+
+                <small>YOUR ACCOUNT</small>
+
+                <h2>Sign in</h2>
+
+                <p>
+                    Access your Humara Ghar account.
+                </p>
+
+            </div>
+
+
+            <!-- EMAIL LOGIN -->
+            <form id="loginForm">
+
+                <label>
+                    Email address
+
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="aryan@humaragar.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <span id="emailError"></span>
+                </label>
+
+
+                <label>
+                    Password
+
+                    <div class="password">
+
+                        <input
+                            id="password"
+                            type="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="toggle"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                    <span id="passwordError"></span>
+                </label>
+
+
+                <div class="form-row">
+
+                    <label class="check">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <span>Remember me</span>
+
+                    </label>
+
+                    <a href="#" id="forgotPassword">
+                        Forgot password?
+                    </a>
+
+                </div>
+
+
+                <button
+                    class="submit"
+                    type="submit"
+                >
+                    <span>Sign in</span>
+                    <b>→</b>
+                </button>
+
+                <div id="status"></div>
+
+            </form>
+
+
+            <!-- GOOGLE LOGIN -->
+            <div class="google-divider">
+                <span>OR</span>
+            </div>
+
+            <button
+                type="button"
+                id="googleLogin"
+                class="google-btn"
+            >
+               <span class="google-icon">
+    <img
+        src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+        alt="Google"
+    >
+</span>
+
+<span>Continue with Google</span>
+            </button>
+
+
+            
+
+            <!-- SIGN UP -->
+            <p class="bottom-copy">
+
+                New to Humara Ghar?
+
+                <a href="signup.html">
+                    Create an account
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <footer>
+            © 2026 Humara Ghar · Made for India
+        </footer>
+
+    </section>
+
+</div>
+
+
+<script type="module" src="./js/auth.js"></script>
+
+</body>
+</html>

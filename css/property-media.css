@@ -1,0 +1,277 @@
+/* =========================================================
+   HUMARA GHAR - PROPERTY MEDIA
+   Used by seller.html and buyer.html
+========================================================= */
+
+.image-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.image-preview:empty {
+    display: none;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #dedbd4;
+}
+
+.upload-help {
+    display: block;
+    margin-top: 8px;
+    color: #77736b;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.property-media {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    background: #eceae4;
+}
+
+.property-media > img,
+.buyer-main-property-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.property-media-empty,
+.buyer-no-image {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: #77736b;
+    font-size: 13px;
+}
+
+.property-status {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    padding: 7px 10px;
+    background: #fff;
+    color: #171716;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.seller-property-card {
+    overflow: hidden;
+}
+
+.property-description {
+    margin: 16px 0;
+    color: #67645e;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.property-description::first-line {
+    color: #24231f;
+}
+
+.seller-property-images {
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin-top: 10px;
+}
+
+.seller-property-images img {
+    flex: 0 0 58px;
+    width: 58px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.property-seller-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 13px 0;
+    margin-top: 14px;
+    border-top: 1px solid #e5e2db;
+    color: #66635d;
+    font-size: 12px;
+}
+
+.property-seller-info strong {
+    color: #22211e;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.buyer-property-card {
+    overflow: hidden;
+}
+
+.buyer-property-media {
+    position: relative;
+    height: 285px;
+    background: #eceae4;
+    overflow: hidden;
+}
+
+.buyer-property-media .heart-btn {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    z-index: 3;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    background: #fff;
+    cursor: pointer;
+    font-size: 21px;
+}
+
+.buyer-property-media .heart-btn.saved {
+    color: #a33131;
+}
+
+.buyer-thumbnail-row {
+    display: flex;
+    gap: 7px;
+    padding: 8px 12px 0;
+    overflow-x: auto;
+    background: #fff;
+}
+
+.buyer-thumb {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 52px;
+    padding: 0;
+    border: 2px solid transparent;
+    background: none;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.buyer-thumb.active {
+    border-color: #171716;
+}
+
+.buyer-thumb img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.buyer-property-description {
+    margin-top: 17px;
+    padding-top: 15px;
+    border-top: 1px solid #e6e3dc;
+}
+
+.buyer-property-description strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.buyer-property-description p {
+    margin: 0;
+    color: #6f6c65;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.buyer-seller-profile {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 18px;
+    padding: 13px 0;
+    border-top: 1px solid #e6e3dc;
+}
+
+.buyer-seller-avatar {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #e8e5de;
+    font-weight: 700;
+}
+
+.buyer-seller-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.buyer-seller-profile > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.buyer-seller-profile small {
+    font-size: 8px;
+    letter-spacing: 1.2px;
+    color: #8a867e;
+}
+
+.buyer-seller-profile strong {
+    font-size: 13px;
+}
+
+.buyer-seller-profile span {
+    font-size: 11px;
+    color: #77736b;
+}
+
+.buyer-empty-state {
+    grid-column: 1 / -1;
+    padding: 70px 20px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #e5e2db;
+}
+
+.buyer-empty-state .empty-icon {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.buyer-empty-state h3 {
+    margin-bottom: 7px;
+}
+
+.buyer-empty-state p {
+    color: #77736b;
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+    .property-media,
+    .buyer-property-media {
+        height: 220px;
+    }
+
+    .image-preview {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

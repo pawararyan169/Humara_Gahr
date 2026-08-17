@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Seller Dashboard | Humara Ghar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/seller.css">
+
+</head>
+
+
+<body>
+
+<div class="seller-app">
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <a href="index.html" class="brand">
+
+                <span class="brand-icon">HG</span>
+
+                <div>
+                    <strong>humara ghar</strong>
+                    <small>PROPERTY PLATFORM</small>
+                </div>
+
+            </a>
+
+
+            <nav class="main-nav">
+
+                <a href="#dashboard" class="nav-item active">
+
+                    <span>⌂</span>
+
+                    Dashboard
+
+                </a>
+
+
+                <a href="#properties" class="nav-item">
+
+                    <span>▣</span>
+
+                    My Properties
+
+                </a>
+
+
+                <a href="#inquiries" class="nav-item">
+
+                    <span>◌</span>
+
+                    Inquiries
+
+                    <b class="nav-count">0</b>
+
+                </a>
+
+
+                <a href="#visits" class="nav-item">
+
+                    <span>◷</span>
+
+                    Visits
+
+                </a>
+
+
+                <a href="#analytics" class="nav-item">
+
+                    <span>↗</span>
+
+                    Analytics
+
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-section">
+
+                <p>ACCOUNT</p>
+
+
+                <a href="#profile" class="nav-item">
+
+                    <span>◎</span>
+
+                    My Profile
+
+                </a>
+
+
+                <a href="#settings" class="nav-item">
+
+                    <span>⚙</span>
+
+                    Settings
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
+
+                <span>↪</span>
+
+                Sign out
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <button
+                type="button"
+                class="mobile-menu"
+                id="menuBtn"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+
+            <div class="breadcrumb">
+
+                Seller Dashboard
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <button
+                    type="button"
+                    class="notification-btn"
+                    aria-label="Notifications"
+                >
+
+                    ♧
+
+                    <i></i>
+
+                </button>
+
+
+                <div class="user-mini">
+
+                    <div
+                        class="avatar"
+                        id="userAvatar"
+                    >
+                        U
+                    </div>
+
+
+                    <div>
+
+                        <strong id="topUserName">
+                            Loading...
+                        </strong>
+
+                        <span>
+                            Seller
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================================
+             CONTENT
+        ========================================== -->
+
+        <div class="content" id="dashboard">
+
+
+            <!-- WELCOME -->
+
+            <section class="welcome">
+
+                <div>
+
+                    <p class="eyebrow">
+                        SELLER DASHBOARD
+                    </p>
+
+
+                    <h1>
+
+                        Welcome back,
+                        <span id="welcomeName">
+                            Loading...
+                        </span>.
+
+                    </h1>
+
+
+                    <p class="welcome-text">
+
+                        Manage your properties, inquiries,
+                        visits and listings from one place.
+
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="list-property-btn"
+                    id="listPropertyBtn"
+                >
+
+                    <span>＋</span>
+
+                    List Your Property
+
+                </button>
+
+            </section>
+
+
+            <!-- =====================================
+                 STATS
+            ====================================== -->
+
+            <section class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⌂
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Active listings
+                        </span>
+
+                        <strong id="activeListings">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ◌
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Inquiries
+                        </span>
+
+                        <strong id="inquiriesCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ◷
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Upcoming visits
+                        </span>
+
+                        <strong id="visitsCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ↗
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Property views
+                        </span>
+
+                        <strong id="propertyViews">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 LIST PROPERTY
+            ====================================== -->
+
+            <section
+                class="listing-panel"
+                id="list-property"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            NEW LISTING
+                        </p>
+
+                        <h2>
+                            List your property
+                        </h2>
+
+                        <p class="section-description">
+                            Add your property details so buyers
+                            can discover your listing.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <form id="propertyForm">
+
+
+                    <!-- PROPERTY PURPOSE -->
+
+                    <div class="form-section">
+
+                        <h3>
+                            What are you offering?
+                        </h3>
+
+
+                        <div class="choice-grid">
+
+                            <label class="choice-card">
+
+                                <input
+                                    type="radio"
+                                    name="listingType"
+                                    value="sale"
+                                    checked
+                                >
+
+                                <span class="choice-content">
+
+                                    <strong>
+                                        Sell
+                                    </strong>
+
+                                    <small>
+                                        I want to sell this property
+                                    </small>
+
+                                </span>
+
+                            </label>
+
+
+                            <label class="choice-card">
+
+                                <input
+                                    type="radio"
+                                    name="listingType"
+                                    value="rent"
+                                >
+
+                                <span class="choice-content">
+
+                                    <strong>
+                                        Rent
+                                    </strong>
+
+                                    <small>
+                                        I want to rent this property
+                                    </small>
+
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROPERTY INFORMATION -->
+
+                    <div class="form-section">
+
+                        <h3>
+                            Property information
+                        </h3>
+
+
+                        <div class="form-grid">
+
+
+                            <!-- PROPERTY TITLE -->
+
+                            <div class="form-group full">
+
+                                <label for="propertyTitle">
+                                    Property title
+                                </label>
+
+                                <input
+                                    id="propertyTitle"
+                                    type="text"
+                                    placeholder="Example: Beautiful 3 BHK Family Home"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- PROPERTY TYPE -->
+
+                            <div class="form-group">
+
+                                <label for="propertyType">
+                                    Property type
+                                </label>
+
+                                <select
+                                    id="propertyType"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select property type
+                                    </option>
+
+                                    <option value="Apartment">
+                                        Apartment
+                                    </option>
+
+                                    <option value="House">
+                                        House
+                                    </option>
+
+                                    <option value="Villa">
+                                        Villa
+                                    </option>
+
+                                    <option value="Plot">
+                                        Plot
+                                    </option>
+
+                                    <option value="Commercial">
+                                        Commercial Property
+                                    </option>
+
+                                    <option value="Office">
+                                        Office
+                                    </option>
+
+                                    <option value="Shop">
+                                        Shop
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- LOCATION -->
+
+                            <div class="form-group location-group">
+
+                                <label for="locationInput">
+                                    Location
+                                </label>
+
+
+                                <div class="location-wrapper">
+
+                                    <span class="location-icon">
+                                        ⌖
+                                    </span>
+
+
+                                    <input
+                                        id="locationInput"
+                                        class="location-input"
+                                        type="text"
+                                        autocomplete="off"
+                                        placeholder="Start typing a city..."
+                                        required
+                                    >
+
+
+                                    <button
+                                        type="button"
+                                        class="clear-location"
+                                        id="clearLocation"
+                                        aria-label="Clear location"
+                                    >
+                                        ×
+                                    </button>
+
+
+                                    <div
+                                        class="location-suggestions"
+                                        id="locationSuggestions"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- PRICE -->
+
+                            <div class="form-group">
+
+                                <label for="propertyPrice">
+                                    Price
+                                </label>
+
+                                <input
+                                    id="propertyPrice"
+                                    type="number"
+                                    min="0"
+                                    placeholder="Enter amount"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- BEDROOMS -->
+
+                            <div class="form-group">
+
+                                <label for="bedrooms">
+                                    Bedrooms
+                                </label>
+
+                                <select id="bedrooms">
+
+                                    <option value="">
+                                        Select
+                                    </option>
+
+                                    <option value="1">
+                                        1
+                                    </option>
+
+                                    <option value="2">
+                                        2
+                                    </option>
+
+                                    <option value="3">
+                                        3
+                                    </option>
+
+                                    <option value="4">
+                                        4
+                                    </option>
+
+                                    <option value="5">
+                                        5+
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- BATHROOMS -->
+
+                            <div class="form-group">
+
+                                <label for="bathrooms">
+                                    Bathrooms
+                                </label>
+
+                                <select id="bathrooms">
+
+                                    <option value="">
+                                        Select
+                                    </option>
+
+                                    <option value="1">
+                                        1
+                                    </option>
+
+                                    <option value="2">
+                                        2
+                                    </option>
+
+                                    <option value="3">
+                                        3
+                                    </option>
+
+                                    <option value="4">
+                                        4+
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- AREA -->
+
+                            <div class="form-group">
+
+                                <label for="area">
+                                    Area (sq ft)
+                                </label>
+
+                                <input
+                                    id="area"
+                                    type="number"
+                                    min="0"
+                                    placeholder="Example: 1800"
+                                >
+
+                            </div>
+
+
+                            <!-- DESCRIPTION -->
+
+                            <div class="form-group full">
+
+                                <label for="description">
+                                    Description
+                                </label>
+
+                                <textarea
+                                    id="description"
+                                    rows="5"
+                                    placeholder="Describe the property, neighbourhood, facilities and other important details..."
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FORM MESSAGE -->
+
+                    <div
+                        class="form-message"
+                        id="formMessage"
+                    ></div>
+
+
+                    <!-- FORM ACTIONS -->
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="secondary-btn"
+                            id="clearFormBtn"
+                        >
+                            Clear
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="submit-listing-btn"
+                        >
+
+                            Publish Property
+
+                            <span>
+                                →
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- =====================================
+                 MY PROPERTIES
+            ====================================== -->
+
+            <section
+                class="properties-section"
+                id="properties"
+            >
+
+                <div class="section-heading-row">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            YOUR LISTINGS
+                        </p>
+
+                        <h2>
+                            My properties
+                        </h2>
+
+                    </div>
+
+
+                    <span
+                        class="listing-count"
+                        id="listingCount"
+                    >
+                        0 listings
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="properties-grid"
+                    id="propertiesGrid"
+                >
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            ⌂
+                        </div>
+
+                        <h3>
+                            No properties listed yet
+                        </h3>
+
+                        <p>
+                            Your published properties will
+                            appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 PROFILE
+            ====================================== -->
+
+            <section
+                class="profile-panel"
+                id="profile"
+            >
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        ACCOUNT
+                    </p>
+
+                    <h2>
+                        Your profile
+                    </h2>
+
+                </div>
+
+
+                <div class="profile-content">
+
+
+                    <div
+                        class="profile-avatar"
+                        id="profileAvatar"
+                    >
+                        U
+                    </div>
+
+
+                    <div class="profile-details">
+
+                        <h3 id="profileName">
+                            Loading...
+                        </h3>
+
+                        <p id="profileEmail">
+                            Loading...
+                        </p>
+
+                        <span class="seller-badge">
+                            SELLER
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================
+     SCRIPT
+========================================== -->
+
+<script
+    type="module"
+    src="js/seller.js"
+></script>
+
+
+</body>
+
+</html>

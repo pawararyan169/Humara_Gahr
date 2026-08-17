@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account — Humara Ghar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+
+<body>
+
+<div class="signup-page">
+
+    <!-- LEFT SIDE -->
+    <section class="signup-visual">
+
+        <a href="index.html" class="brand">
+            <span>⌂</span>
+            HUMARA GHAR
+        </a>
+
+        <div class="visual-content">
+
+            <p class="eyebrow">FIND YOUR PLACE</p>
+
+            <h1>
+                Your next chapter
+                starts with a home.
+            </h1>
+
+            <p class="visual-description">
+                Discover properties, save your favourites,
+                connect with sellers and find a place that
+                feels like yours.
+            </p>
+
+            <div class="visual-details">
+
+                <div>
+                    <strong>10K+</strong>
+                    <span>Properties</span>
+                </div>
+
+                <div>
+                    <strong>4.8/5</strong>
+                    <span>User rating</span>
+                </div>
+
+                <div>
+                    <strong>24/7</strong>
+                    <span>Support</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RIGHT SIDE -->
+    <section class="signup-form-area">
+
+        <div class="signup-form-container">
+
+            <div class="mobile-brand">
+                <a href="index.html">
+                    ⌂ HUMARA GHAR
+                </a>
+            </div>
+
+
+            <!-- HEADER -->
+            <div class="form-header">
+
+                <p class="eyebrow">
+                    CREATE YOUR ACCOUNT
+                </p>
+
+                <h2>
+                    Welcome to Humara Ghar.
+                </h2>
+
+                <p>
+                    Create your account and start discovering
+                    properties that fit your life.
+                </p>
+
+            </div>
+
+
+            <!-- SIGNUP FORM -->
+            <form id="signupForm">
+
+                <!-- NAME -->
+                <div class="name-row">
+
+                    <div class="form-group">
+
+                        <label for="firstName">
+                            First name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="firstName"
+                            placeholder="Aryan"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="lastName">
+                            Last name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="lastName"
+                            placeholder="Pawar"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+                <div class="form-group">
+
+                    <label for="email">
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PHONE -->
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="+91 98765 43210"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Create a strong password"
+                            required
+                            minlength="6"
+                        >
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="password-toggle"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACCOUNT TYPE -->
+                <div class="form-group">
+
+                    <label for="accountType">
+                        I want to
+                    </label>
+
+                    <select id="accountType" required>
+
+                        <option value="">
+                            Select account type
+                        </option>
+
+                        <option value="buyer">
+                            Buy a property
+                        </option>
+
+                        <option value="renter">
+                            Rent a property
+                        </option>
+
+                        <option value="seller">
+                            Sell a property
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TERMS -->
+                <label class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <span>
+                        I agree to the
+                        <a href="#">
+                            Terms of Service
+                        </a>
+                        and
+                        <a href="#">
+                            Privacy Policy
+                        </a>.
+                    </span>
+
+                </label>
+
+
+                <!-- CREATE ACCOUNT -->
+                <button
+                    type="submit"
+                    class="create-account-btn"
+                >
+                    <span>Create account</span>
+                    <span>→</span>
+                </button>
+
+
+                <p
+                    id="signupMessage"
+                    class="signup-message"
+                ></p>
+
+
+                <!-- GOOGLE SIGNUP -->
+                <div class="google-divider">
+                    <span>OR</span>
+                </div>
+
+
+                <button
+                    type="button"
+                    id="googleSignup"
+                    class="google-btn"
+                >
+
+                    <span class="google-icon">
+
+                        <img
+                            src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                            alt="Google"
+                        >
+
+                    </span>
+
+                    <span>
+                        Continue with Google
+                    </span>
+
+                </button>
+
+            </form>
+
+
+            <!-- LOGIN -->
+            <div class="login-link">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Sign in
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <footer>
+            © 2026 Humara Ghar · Made for India
+        </footer>
+
+    </section>
+
+</div>
+
+
+<script
+    type="module"
+    src="js/signup.js">
+</script>
+
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Humara Ghar — Find Your Place</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:#171716;background:#f7f6f2}
+a{text-decoration:none;color:inherit}
+button,input,select{font:inherit}
+
+.navbar{height:78px;background:#fff;border-bottom:1px solid #e5e3de;display:flex;align-items:center;padding:0 6%;gap:42px;position:relative;z-index:10}
+.logo{font-size:15px;font-weight:800;letter-spacing:1.8px;white-space:nowrap}
+.logo span{font-size:22px;margin-right:8px}
+.navbar nav{display:flex;gap:30px;flex:1}
+.navbar nav a{font-size:13px;color:#55534e}
+.navbar nav a:hover{color:#111}
+.nav-auth{display:flex;align-items:center;gap:8px;margin-left:auto}
+.signin{padding:13px 17px;font-size:12px;font-weight:700}
+.signup-btn{background:#171716;color:#fff;padding:13px 20px;font-size:12px;font-weight:700}
+.signup-btn:hover{background:#363632}
+.menu-btn{display:none;background:none;border:0;font-size:23px;cursor:pointer}
+
+.hero{min-height:700px;position:relative;display:flex;align-items:center;padding:80px 7%;background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=85") center/cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,20,18,.78),rgba(18,20,18,.35),rgba(18,20,18,.18))}
+.hero-content{position:relative;z-index:2;width:100%;max-width:1280px;margin:auto;color:#fff}
+.eyebrow{font-size:10px;letter-spacing:2px;font-weight:800;color:#77736b}
+.white{color:#ddd9d0}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:68px;line-height:1.02;font-weight:400;letter-spacing:-2.5px;margin:18px 0}
+.hero> .hero-content > p{max-width:550px;color:#ddd9d0;font-size:16px;line-height:1.7}
+
+.search-panel{margin-top:38px;background:#fff;color:#171716;width:100%;max-width:1250px;box-shadow:0 20px 65px rgba(0,0,0,.28)}
+.search-tabs{height:58px;display:flex;align-items:center;padding:0 24px;border-bottom:1px solid #e5e3de;gap:28px}
+.search-tabs button{height:58px;border:0;background:none;color:#77736b;font-size:12px;font-weight:700;cursor:pointer;position:relative}
+.search-tabs button.active{color:#171716}
+.search-tabs button.active:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#171716}
+.search-fields{display:grid;grid-template-columns:1.45fr 1fr 1fr 180px;align-items:stretch}
+.search-fields label{padding:17px 24px 16px;border-right:1px solid #e5e3de;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#77736b}
+.search-fields input,.search-fields select{display:block;width:100%;border:0;background:#fff;color:#20201e;outline:0;margin-top:8px;font-size:14px;text-transform:none;letter-spacing:0}
+.search-fields input::placeholder{color:#99968f}
+.search-button{margin:12px;height:50px;border:0;background:#171716;color:#fff;cursor:pointer;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:18px}
+.search-button:hover{background:#363632}
+.hero-account{display:flex;align-items:center;gap:12px;margin-top:17px;font-size:12px;color:rgba(255,255,255,.78)}
+.hero-account a{color:#fff;font-weight:700;border-bottom:1px solid rgba(255,255,255,.65);padding-bottom:2px}
+
+.section{padding:95px 7%;max-width:1500px;margin:auto}
+.section-heading{display:flex;align-items:end;justify-content:space-between;margin-bottom:42px}
+.section h2{font-family:Georgia,"Times New Roman",serif;font-size:48px;font-weight:400;line-height:1.08;letter-spacing:-1.5px;margin-top:12px}
+.outline-btn{background:transparent;border:1px solid #bbb7ae;padding:12px 18px;font-size:11px;font-weight:700;cursor:pointer}
+.filter-bar{display:grid;grid-template-columns:1.7fr 1fr 1fr 120px;margin-bottom:35px;background:#fff;border:1px solid #e1ded7}
+.filter-bar input,.filter-bar select{border:0;border-right:1px solid #e1ded7;padding:16px;outline:0;background:#fff;color:#444}
+.dark-btn{border:0;background:#171716;color:#fff;padding:14px 18px;font-size:12px;font-weight:700;cursor:pointer}
+.property-layout{display:block}
+.property-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.property-card{background:#fff}
+.property-image{height:270px;position:relative;background-size:cover;background-position:center}
+.image-one{background-image:url("https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80")}
+.image-two{background-image:url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=80")}
+.image-three{background-image:url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=80")}
+.image-four{background-image:url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80")}
+.property-image>span{position:absolute;top:15px;left:15px;background:#fff;padding:7px 9px;font-size:9px;font-weight:800;letter-spacing:1px}
+.property-image>button{position:absolute;right:15px;top:15px;width:35px;height:35px;border:0;background:#fff;font-size:20px;cursor:pointer}
+.property-info{padding:20px}
+.property-info h3{font-family:Georgia,serif;font-size:23px;font-weight:400}
+.property-info h4{font-family:Georgia,serif;font-size:19px;font-weight:400;margin-top:7px}
+.property-info p{color:#77736b;font-size:12px;margin:6px 0 15px}
+.meta{font-size:11px;color:#55534e}
+
+.map:before,.map:after{content:"";position:absolute;background:#fff;opacity:.75}
+
+
+
+
+
+
+
+.collection-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.collection-card{height:420px;position:relative;background-size:cover;background-position:center;display:flex;align-items:end;padding:28px;color:#fff;overflow:hidden}
+.collection-card:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.72))}
+.collection-card>div{position:relative;z-index:2}
+.collection-card h3{font-family:Georgia,serif;font-size:27px;font-weight:400}
+.collection-card p{font-size:12px;margin-top:7px;color:#ddd}
+.collection-one{background-image:url("https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80")}
+.collection-two{background-image:url("https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80")}
+.collection-three{background-image:url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80")}
+
+.recommendation{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center;background:#ece9e1;max-width:none}
+.recommendation-copy{max-width:530px}
+.recommendation-copy p{color:#6e6b64;line-height:1.7;font-size:14px;margin:18px 0 25px}
+.inline-btn{display:inline-block}
+.mini-properties{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mini-card{height:360px;background-size:cover;background-position:center;position:relative}
+.mini-card:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(0,0,0,.55))}
+.mini-card span{position:absolute;z-index:2;bottom:18px;left:18px;color:#fff;font-family:Georgia,serif;font-size:19px}
+
+.sell-section{padding:90px 7%;background:#1c1c1a;color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.sell-section h2{font-family:Georgia,serif;font-size:52px;font-weight:400;line-height:1.05;max-width:620px;margin:16px 0}
+.sell-section p{color:#aaa79f;line-height:1.7;max-width:500px;font-size:14px}
+.sell-section ul{list-style:none;margin:24px 0;line-height:2.2;font-size:13px;color:#ddd}
+.white-btn{display:inline-block;background:#fff;color:#171716;padding:15px 22px;font-size:12px;font-weight:700}
+.sell-image{height:460px;background:url("https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=80") center/cover}
+
+.agents-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.agent-photo{height:310px;background-size:cover;background-position:center}
+.agent-one{background-image:url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80")}
+.agent-two{background-image:url("https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80")}
+.agent-three{background-image:url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80")}
+.agent-four{background-image:url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80")}
+.agent-card h3{font-family:Georgia,serif;font-size:20px;font-weight:400;margin-top:15px}
+.agent-card p{font-size:11px;color:#77736b;margin-top:5px}
+
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.news-image{height:270px;background-size:cover;background-position:center;margin-bottom:18px}
+.news-one{background-image:url("https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1000&q=80")}
+.news-two{background-image:url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=80")}
+.news-three{background-image:url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=80")}
+.news-grid small{font-size:9px;font-weight:800;letter-spacing:1.5px;color:#77736b}
+.news-grid h3{font-family:Georgia,serif;font-size:22px;font-weight:400;line-height:1.25;margin-top:9px}
+
+footer{display:flex;justify-content:space-between;padding:30px 7%;background:#111;color:#aaa;font-size:11px}
+footer strong{color:#fff;letter-spacing:1px}
+
+@media(max-width:1000px){
+.navbar{gap:20px}.navbar nav{gap:15px}
+.property-layout{grid-template-columns:1fr}
+.sell-section{grid-template-columns:1fr}.collection-grid{grid-template-columns:1fr 1fr}.agents-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+.navbar{padding:0 5%}.navbar nav{display:none}.menu-btn{display:block;margin-left:auto}.nav-auth{margin-left:auto}.signin{display:none}
+.hero{padding:65px 5%;min-height:680px}.hero h1{font-size:48px}.search-fields{grid-template-columns:1fr}.search-fields label{border-right:0;border-bottom:1px solid #e5e3de}.search-button{margin:12px;height:52px}
+.hero-account{flex-direction:column;align-items:flex-start}
+.section{padding:70px 5%}.section-heading{align-items:flex-start;gap:20px;flex-direction:column}.section h2{font-size:38px}
+.filter-bar{grid-template-columns:1fr}.filter-bar>*{border-right:0;border-bottom:1px solid #e1ded7}
+.property-grid,.collection-grid,.news-grid{grid-template-columns:1fr}.mini-properties{grid-template-columns:1fr}.mini-card{height:250px}
+.sell-section{padding:70px 5%}.sell-section h2{font-size:40px}.sell-image{height:330px}
+.agents-grid{grid-template-columns:1fr 1fr}.agent-photo{height:250px}
+footer{flex-direction:column;gap:12px}
+}
+@media(max-width:480px){
+.nav-auth .signup-btn{padding:11px 13px}.hero h1{font-size:42px}.search-panel{margin-top:28px}.agents-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo"><span>⌂</span> HUMARA GHAR</a>
+
+    <nav>
+        <a href="#buy">Buy</a>
+        <a href="#rent">Rent</a>
+        <a href="#sell">Sell</a>
+        <a href="#agents">Agents</a>
+        <a href="#news">News</a>
+    </nav>
+
+    <div class="nav-auth">
+        <a href="login.html" class="signin">Sign in</a>
+        <a href="signup.html" class="signup-btn">Sign up</a>
+    </div>
+
+    <button class="menu-btn" onclick="alert('Mobile menu can be connected next.')">☰</button>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <span class="eyebrow white">A smarter way to find your next home</span>
+
+        <h1>Discover a place<br>to call home.</h1>
+
+        <p>
+            Search properties, explore neighbourhoods and connect
+            with trusted property professionals.
+        </p>
+
+        <div class="search-panel">
+
+            <div class="search-tabs">
+                <button class="active">Buy</button>
+                <button>Rent</button>
+                <button>Commercial</button>
+            </div>
+
+            <div class="search-fields">
+
+                <label>
+                    Location
+                    <input id="locationSearch" type="text" placeholder="City, neighbourhood or locality">
+                </label>
+
+                <label>
+                    Property type
+                    <select id="propertyType">
+                        <option>Any property</option>
+                        <option>Apartment</option>
+                        <option>House</option>
+                        <option>Villa</option>
+                        <option>Plot</option>
+                    </select>
+                </label>
+
+                <label>
+                    Budget
+                    <select id="budget">
+                        <option>Any budget</option>
+                        <option>Under ₹50 Lakh</option>
+                        <option>₹50 Lakh – ₹1 Crore</option>
+                        <option>₹1 Crore – ₹2 Crore</option>
+                        <option>₹2 Crore+</option>
+                    </select>
+                </label>
+
+                <button class="search-button" onclick="searchProperty()">
+                    Search properties <span>→</span>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="hero-account">
+            <span>New to Humara Ghar?</span>
+            <a href="signup.html">Create an account →</a>
+        </div>
+    </div>
+</section>
+
+<section id="buy" class="section">
+
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">SMART PROPERTY DISCOVERY</span>
+            <h2>Find a home that fits your life</h2>
+        </div>
+        <button class="outline-btn">Save search</button>
+    </div>
+
+    <div class="filter-bar">
+        <input type="text" placeholder="Search by city, locality or landmark">
+
+        <select>
+            <option>Property type</option>
+            <option>Apartment</option>
+            <option>House</option>
+            <option>Villa</option>
+        </select>
+
+        <select>
+            <option>Budget</option>
+            <option>Under ₹50L</option>
+            <option>₹50L–₹1Cr</option>
+            <option>₹1Cr+</option>
+        </select>
+
+        <button class="dark-btn">Search</button>
+    </div>
+
+    <div class="property-layout">
+
+        <div class="property-grid">
+
+            <article class="property-card">
+                <div class="property-image image-one">
+                    <span>FOR SALE</span>
+                    <button>♡</button>
+                </div>
+                <div class="property-info">
+                    <h3>₹1,34,00,000</h3>
+                    <h4>Willow Modern Residence</h4>
+                    <p>Contemporary family living</p>
+                    <div class="meta">4 Beds · 3 Baths · 2,840 sq ft</div>
+                </div>
+            </article>
+
+            <article class="property-card">
+                <div class="property-image image-two">
+                    <span>FOR SALE</span>
+                    <button>♡</button>
+                </div>
+                <div class="property-info">
+                    <h3>₹1,18,00,000</h3>
+                    <h4>Downtown Glass House</h4>
+                    <p>Premium city residence</p>
+                    <div class="meta">3 Beds · 2 Baths · 2,210 sq ft</div>
+                </div>
+            </article>
+
+            <article class="property-card">
+                <div class="property-image image-three">
+                    <span>FOR SALE</span>
+                    <button>♡</button>
+                </div>
+                <div class="property-info">
+                    <h3>₹94,00,000</h3>
+                    <h4>Oakline Family Home</h4>
+                    <p>Quiet neighbourhood living</p>
+                    <div class="meta">4 Beds · 3 Baths · 2,520 sq ft</div>
+                </div>
+            </article>
+
+            <article class="property-card">
+                <div class="property-image image-four">
+                    <span>FOR SALE</span>
+                    <button>♡</button>
+                </div>
+                <div class="property-info">
+                    <h3>₹1,56,00,000</h3>
+                    <h4>Skyline Residence</h4>
+                    <p>Luxury with a city view</p>
+                    <div class="meta">3 Beds · 3 Baths · 2,730 sq ft</div>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">CURATED DESTINATIONS</span>
+            <h2>Explore our homes</h2>
+        </div>
+        <button class="outline-btn">View all</button>
+    </div>
+
+    <div class="collection-grid">
+        <article class="collection-card collection-one">
+            <div>
+                <h3>Modern Villas</h3>
+                <p>Designed for contemporary living</p>
+            </div>
+        </article>
+
+        <article class="collection-card collection-two">
+            <div>
+                <h3>Family Homes</h3>
+                <p>Space for what matters</p>
+            </div>
+        </article>
+
+        <article class="collection-card collection-three">
+            <div>
+                <h3>Urban Apartments</h3>
+                <p>Made for city life</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section id="rent" class="recommendation section">
+
+    <div class="recommendation-copy">
+        <span class="eyebrow">HOMES FOR YOU</span>
+        <h2>Recommendations that get better with you.</h2>
+
+        <p>
+            Tell Humara Ghar what matters to you and discover homes
+            based on price, location, space and lifestyle.
+        </p>
+
+        <a class="dark-btn inline-btn" href="#buy">
+            Explore recommendations →
+        </a>
+    </div>
+
+    <div class="mini-properties">
+        <div class="mini-card image-one"><span>Modern</span></div>
+        <div class="mini-card image-two"><span>City</span></div>
+        <div class="mini-card image-three"><span>Family</span></div>
+    </div>
+</section>
+
+<section id="sell" class="sell-section">
+
+    <div>
+        <span class="eyebrow white">THE SMARTER WAY TO SELL</span>
+
+        <h2>Your property deserves the right buyer.</h2>
+
+        <p>
+            Manage your listing, enquiries, appointments and performance
+            from one clean workspace.
+        </p>
+
+        <ul>
+            <li>✓ AI-assisted listing descriptions</li>
+            <li>✓ Lead and enquiry management</li>
+            <li>✓ Property performance analytics</li>
+        </ul>
+
+        <a href="seller.html" class="white-btn">List a property</a>
+    </div>
+
+    <div class="sell-image"></div>
+</section>
+
+<section id="agents" class="section">
+
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">LOCAL EXPERTISE</span>
+            <h2>Meet trusted agents</h2>
+        </div>
+        <button class="outline-btn">View all agents</button>
+    </div>
+
+    <div class="agents-grid">
+
+        <article class="agent-card">
+            <div class="agent-photo agent-one"></div>
+            <h3>Meera Shah</h3>
+            <p>Property Consultant · ★ 4.9</p>
+        </article>
+
+        <article class="agent-card">
+            <div class="agent-photo agent-two"></div>
+            <h3>Rohan Mehta</h3>
+            <p>Property Consultant · ★ 4.8</p>
+        </article>
+
+        <article class="agent-card">
+            <div class="agent-photo agent-three"></div>
+            <h3>Ananya Patel</h3>
+            <p>Property Consultant · ★ 5.0</p>
+        </article>
+
+        <article class="agent-card">
+            <div class="agent-photo agent-four"></div>
+            <h3>Karan Malhotra</h3>
+            <p>Property Consultant · ★ 4.9</p>
+        </article>
+
+    </div>
+</section>
+
+<section id="news" class="section">
+
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">FROM HUMARA GHAR</span>
+            <h2>Real estate news & inspiration</h2>
+        </div>
+    </div>
+
+    <div class="news-grid">
+
+        <article>
+            <div class="news-image news-one"></div>
+            <small>MARKET</small>
+            <h3>The neighbourhoods buyers are watching this year</h3>
+        </article>
+
+        <article>
+            <div class="news-image news-two"></div>
+            <small>GUIDE</small>
+            <h3>What to check before buying your first home</h3>
+        </article>
+
+        <article>
+            <div class="news-image news-three"></div>
+            <small>TECHNOLOGY</small>
+            <h3>How AI is changing the way people find homes</h3>
+        </article>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <strong>⌂ HUMARA GHAR</strong>
+    <span>Find better. Live better.</span>
+    <span>© 2026 Humara Ghar</span>
+</footer>
+
+<script>
+function searchProperty(){
+    const location = document.getElementById("locationSearch").value.trim();
+
+    if(location){
+        alert("Searching Humara Ghar properties in " + location + "...");
+    }else{
+        alert("Enter a city, neighbourhood or locality to search.");
+    }
+}
+</script>
+<script type="module" src="js/test-firebase.js"></script>
+<script type="module" src="js/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,627 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", Arial, sans-serif;
+    background: #f5f3ee;
+    color: #1c1c1a;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.signup-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 48% 52%;
+}
+
+
+/* =========================
+   LEFT VISUAL
+========================= */
+
+.signup-visual {
+    min-height: 100vh;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 42px 7%;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(20, 22, 19, 0.45),
+            rgba(20, 22, 19, 0.70)
+        ),
+        url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* BRAND */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.brand span {
+    font-size: 26px;
+    margin-right: 10px;
+}
+
+
+/* LEFT CONTENT */
+
+.visual-content {
+    max-width: 560px;
+
+    margin-top: auto;
+    margin-bottom: 8%;
+}
+
+.eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.visual-content .eyebrow {
+    color: #d4d0c8;
+}
+
+.visual-content h1 {
+    margin-top: 20px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 500;
+
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.visual-description {
+    max-width: 480px;
+
+    margin-top: 25px;
+
+    color: #dedbd4;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* STATS */
+
+.visual-details {
+    display: flex;
+    gap: 55px;
+
+    margin-top: 45px;
+}
+
+.visual-details div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.visual-details strong {
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.visual-details span {
+    color: #c7c3bb;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.signup-form-area {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #f7f6f2;
+}
+
+
+.signup-form-container {
+    width: 100%;
+    max-width: 620px;
+
+    margin: auto;
+
+    padding: 55px 65px;
+}
+
+
+/* MOBILE BRAND */
+
+.mobile-brand {
+    display: none;
+
+    margin-bottom: 35px;
+
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.form-header {
+    margin-bottom: 32px;
+}
+
+.form-header .eyebrow {
+    color: #77736b;
+}
+
+.form-header h2 {
+    margin-top: 12px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 40px;
+    font-weight: 500;
+
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.form-header > p:last-child {
+    margin-top: 12px;
+
+    max-width: 470px;
+
+    color: #77736b;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+#signupForm {
+    width: 100%;
+}
+
+.name-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+.form-group label,
+.form-group > label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #4c4a45;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+}
+
+
+/* INPUTS */
+
+input,
+select {
+    width: 100%;
+
+    height: 51px;
+
+    border: 1px solid #d8d5ce;
+
+    border-radius: 0;
+
+    outline: none;
+
+    background: #fff;
+
+    color: #222;
+
+    padding: 0 15px;
+
+    font-size: 13px;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+    color: #aaa69e;
+}
+
+input:focus,
+select:focus {
+    border-color: #68655e;
+
+    box-shadow: 0 0 0 3px rgba(50, 50, 45, 0.06);
+}
+
+
+/* =========================
+   PASSWORD
+========================= */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 65px;
+}
+
+.password-toggle {
+    position: absolute;
+
+    right: 14px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: 0;
+    background: transparent;
+
+    color: #55524c;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   TERMS
+========================= */
+
+.terms {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin: 5px 0 22px;
+
+    color: #77736b;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+.terms input {
+    width: 15px;
+    height: 15px;
+
+    margin-top: 1px;
+
+    flex-shrink: 0;
+}
+
+.terms a {
+    color: #222;
+
+    font-weight: 700;
+
+    text-decoration: underline;
+}
+
+
+/* =========================
+   CREATE ACCOUNT BUTTON
+========================= */
+
+.create-account-btn {
+    width: 100%;
+    height: 53px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 19px;
+
+    border: 0;
+
+    background: #171716;
+    color: #fff;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background 0.2s;
+}
+
+.create-account-btn:hover {
+    background: #343431;
+}
+
+.create-account-btn span:last-child {
+    font-size: 18px;
+}
+
+
+/* MESSAGE */
+
+.signup-message {
+    min-height: 18px;
+
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   GOOGLE DIVIDER
+========================= */
+
+.google-divider {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 22px 0;
+
+    color: #99958d;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.google-divider::before,
+.google-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #ddd9d1;
+}
+
+
+/* =========================
+   GOOGLE BUTTON
+========================= */
+
+.google-btn {
+    width: 100%;
+    height: 53px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    border: 1px solid #d3d0c8;
+
+    background: #fff;
+    color: #222;
+
+    cursor: pointer;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s,
+        border-color 0.2s;
+}
+
+.google-btn:hover {
+    background: #f2f1ed;
+
+    border-color: #aaa69e;
+}
+
+.google-icon {
+    width: 21px;
+    height: 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.google-icon img {
+    width: 20px;
+    height: 20px;
+
+    display: block;
+}
+
+
+/* =========================
+   LOGIN LINK
+========================= */
+
+.login-link {
+    margin-top: 24px;
+
+    text-align: center;
+
+    color: #77736b;
+
+    font-size: 12px;
+}
+
+.login-link a {
+    margin-left: 4px;
+
+    color: #171716;
+
+    font-weight: 700;
+
+    text-decoration: underline;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 20px 40px;
+
+    border-top: 1px solid #e5e2db;
+
+    color: #99958d;
+
+    text-align: center;
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .signup-page {
+        grid-template-columns: 42% 58%;
+    }
+
+    .signup-form-container {
+        padding: 45px 40px;
+    }
+
+    .visual-content h1 {
+        font-size: 50px;
+    }
+
+    .visual-details {
+        gap: 25px;
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .signup-page {
+        display: block;
+    }
+
+    .signup-visual {
+        display: none;
+    }
+
+    .signup-form-area {
+        min-height: 100vh;
+    }
+
+    .signup-form-container {
+        max-width: 600px;
+
+        padding: 35px 25px;
+    }
+
+    .mobile-brand {
+        display: block;
+    }
+
+    .form-header h2 {
+        font-size: 36px;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .signup-form-container {
+        padding: 30px 20px;
+    }
+
+    .name-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-header h2 {
+        font-size: 32px;
+    }
+
+    .form-header > p:last-child {
+        font-size: 13px;
+    }
+
+}

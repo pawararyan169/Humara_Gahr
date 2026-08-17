@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Buyer Dashboard | Humara Ghar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/buyer.css">
+    <link rel="stylesheet" href="css/property-media.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <a href="index.html" class="brand">
+                <span>HG</span>
+                <div>
+                    <strong>humara ghar</strong>
+                    <small>PROPERTY PLATFORM</small>
+                </div>
+            </a>
+
+
+            <nav class="main-nav">
+
+                <a href="#" class="nav-item active">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="#properties" class="nav-item">
+                    <span>⌕</span>
+                    Find Properties
+                </a>
+
+                <a href="#saved" class="nav-item">
+                    <span>♡</span>
+                    Saved Homes
+                    <b class="nav-count">4</b>
+                </a>
+
+                <a href="#visits" class="nav-item">
+                    <span>◷</span>
+                    My Visits
+                </a>
+
+                <a href="#messages" class="nav-item">
+                    <span>◌</span>
+                    Messages
+                    <b class="nav-count">2</b>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-section">
+
+                <p>ACCOUNT</p>
+
+                <a href="#profile" class="nav-item">
+                    <span>◎</span>
+                    My Profile
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <button id="logoutBtn" class="logout-btn">
+                <span>↪</span>
+                Sign out
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <button class="mobile-menu" id="menuBtn">
+                ☰
+            </button>
+
+
+            <div class="breadcrumb">
+                Buyer Dashboard
+            </div>
+
+
+            <div class="top-actions">
+
+                <button class="notification-btn">
+                    ♧
+                    <i></i>
+                </button>
+
+
+                <div class="user-mini">
+
+                    <div class="avatar" id="userAvatar">
+                        A
+                    </div>
+
+                    <div>
+                        <strong id="topUserName">Loading...</strong>
+                        <span>Buyer</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+
+        <div class="content">
+
+
+            <!-- WELCOME -->
+
+            <section class="welcome">
+
+                <div>
+
+                    <p class="eyebrow">
+                        BUYER DASHBOARD
+                    </p>
+
+                    <h1>
+                        Welcome back,
+                        <span id="welcomeName">Loading...</span>.
+                    </h1>
+
+                    <p class="welcome-text">
+                        Find a property that feels like home.
+                        Your saved homes, visits and conversations
+                        are all in one place.
+                    </p>
+
+                </div>
+
+
+                <a href="#properties" class="primary-btn">
+                    Find a property
+                    <span>→</span>
+                </a>
+
+            </section>
+
+
+            <!-- STAT CARDS -->
+
+            <section class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ♡
+                    </div>
+
+                    <div>
+                        <span>Saved homes</span>
+                        <strong>4</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ◷
+                    </div>
+
+                    <div>
+                        <span>Upcoming visits</span>
+                        <strong>2</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ◌
+                    </div>
+
+                    <div>
+                        <span>Active inquiries</span>
+                        <strong>3</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⌂
+                    </div>
+
+                    <div>
+                        <span>Properties viewed</span>
+                        <strong>18</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SEARCH -->
+
+            <section class="search-section">
+
+                <div class="section-title">
+
+                    <div>
+                        <p class="eyebrow">PROPERTY SEARCH</p>
+
+                        <h2>
+                            What are you looking for?
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="property-search">
+
+                    <div class="search-field">
+
+                        <span>⌖</span>
+
+                        <div>
+                            <label>Location</label>
+
+                            <input
+                                id="propertyLocation"
+                                type="text"
+                                placeholder="City, locality or landmark"
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="search-field">
+
+                        <span>⌂</span>
+
+                        <div>
+
+                            <label>Property type</label>
+
+                            <select id="propertyType">
+
+                                <option value="">
+                                    Any property
+                                </option>
+
+                                <option>
+                                    Apartment
+                                </option>
+
+                                <option>
+                                    House
+                                </option>
+
+                                <option>
+                                    Villa
+                                </option>
+
+                                <option>
+                                    Plot
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="search-field">
+
+                        <span>₹</span>
+
+                        <div>
+
+                            <label>Budget</label>
+
+                            <select id="propertyBudget">
+
+                                <option>
+                                    Any budget
+                                </option>
+
+                                <option>
+                                    Under ₹50 Lakh
+                                </option>
+
+                                <option>
+                                    ₹50 Lakh – ₹1 Crore
+                                </option>
+
+                                <option>
+                                    ₹1 Crore – ₹2 Crore
+                                </option>
+
+                                <option>
+                                    ₹2 Crore+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="search-btn"
+                        id="searchBtn"
+                    >
+                        Search
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- PROPERTIES -->
+
+            <section id="properties" class="properties-section">
+
+                <div class="section-header">
+
+                    <div>
+                        <p class="eyebrow">RECOMMENDED FOR YOU</p>
+                        <h2>Properties worth seeing</h2>
+                    </div>
+
+                    <span class="text-btn" id="buyerPropertyCount">0 properties</span>
+
+                </div>
+
+                <div class="property-grid" id="buyerPropertiesGrid">
+
+                    <div class="buyer-empty-state">
+                        <div class="empty-icon">⌂</div>
+                        <h3>Loading properties...</h3>
+                        <p>Fetching live seller listings.</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- LOWER GRID -->
+
+            <section class="lower-grid">
+
+
+                <!-- VISITS -->
+
+                <div class="panel" id="visits">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                UPCOMING
+                            </p>
+
+                            <h2>
+                                Property visits
+                            </h2>
+
+                        </div>
+
+                        <button class="text-btn">
+                            View all
+                        </button>
+
+                    </div>
+
+
+                    <div class="visit-item">
+
+                        <div class="visit-date">
+
+                            <strong>18</strong>
+                            <span>AUG</span>
+
+                        </div>
+
+                        <div class="visit-info">
+
+                            <strong>
+                                Modern Family Residence
+                            </strong>
+
+                            <span>
+                                11:30 AM · Satellite
+                            </span>
+
+                        </div>
+
+                        <button>
+                            →
+                        </button>
+
+                    </div>
+
+
+                    <div class="visit-item">
+
+                        <div class="visit-date">
+
+                            <strong>21</strong>
+                            <span>AUG</span>
+
+                        </div>
+
+                        <div class="visit-info">
+
+                            <strong>
+                                Skyline Urban Villa
+                            </strong>
+
+                            <span>
+                                4:00 PM · Vastrapur
+                            </span>
+
+                        </div>
+
+                        <button>
+                            →
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SAVED -->
+
+                <div class="panel" id="saved">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                YOUR COLLECTION
+                            </p>
+
+                            <h2>
+                                Saved homes
+                            </h2>
+
+                        </div>
+
+                        <button class="text-btn">
+                            4 homes
+                        </button>
+
+                    </div>
+
+
+                    <div class="saved-item">
+
+                        <div class="saved-thumb property-one"></div>
+
+                        <div>
+
+                            <strong>
+                                Modern Family Residence
+                            </strong>
+
+                            <span>
+                                ₹1.34 Cr · Ahmedabad
+                            </span>
+
+                        </div>
+
+                        <button>
+                            →
+                        </button>
+
+                    </div>
+
+
+                    <div class="saved-item">
+
+                        <div class="saved-thumb property-two"></div>
+
+                        <div>
+
+                            <strong>
+                                Oakline Garden Home
+                            </strong>
+
+                            <span>
+                                ₹92 Lakh · Ahmedabad
+                            </span>
+
+                        </div>
+
+                        <button>
+                            →
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- PROFILE -->
+
+            <section
+                class="profile-panel"
+                id="profile"
+            >
+
+                <div class="profile-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            ACCOUNT
+                        </p>
+
+                        <h2>
+                            Your profile
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-content">
+
+                    <div class="profile-avatar" id="profileAvatar">
+                        A
+                    </div>
+
+                    <div class="profile-details">
+
+                        <h3 id="profileName">
+                            Loading...
+                        </h3>
+
+                        <p id="profileEmail">
+                            Loading email...
+                        </p>
+
+                        <span class="buyer-badge">
+                            BUYER
+                        </span>
+
+                    </div>
+
+                    <button class="edit-profile">
+                        Edit profile
+                    </button>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script type="module" src="js/buyer.js"></script>
+
+</body>
+</html>

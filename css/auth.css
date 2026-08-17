@@ -1,0 +1,705 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "DM Sans", Arial, sans-serif;
+    background: #f6f4ef;
+    color: #1c1c1a;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+
+/* ===============================
+   MAIN LAYOUT
+================================ */
+
+.auth-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 52% 48%;
+}
+
+
+/* ===============================
+   LEFT IMAGE
+================================ */
+
+.auth-image {
+    min-height: 100vh;
+
+    position: relative;
+
+    padding: 38px 7%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(15, 16, 14, .82),
+            rgba(15, 16, 14, .38)
+        ),
+        url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* BRAND */
+
+.auth-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: fit-content;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.auth-brand span {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.6);
+
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+
+/* LEFT TEXT */
+
+.image-copy {
+    max-width: 600px;
+    padding-bottom: 8vh;
+}
+
+.image-copy small {
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: #d8d5cd;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.image-copy h1 {
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(48px, 5vw, 76px);
+
+    line-height: 1.02;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+}
+
+.image-copy h1 em {
+    font-style: italic;
+}
+
+.image-copy p {
+    max-width: 480px;
+
+    margin-top: 25px;
+
+    color: #ddd9d1;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* ===============================
+   RIGHT SIDE
+================================ */
+
+.auth-side {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #f8f7f3;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 510px;
+
+    margin: auto;
+
+    padding: 55px 50px;
+}
+
+
+/* MOBILE BRAND */
+
+.mobile-brand {
+    display: none;
+
+    margin-bottom: 40px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* ===============================
+   HEADING
+================================ */
+
+.auth-heading {
+    margin-bottom: 35px;
+}
+
+.auth-heading small {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #77736b;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.auth-heading h2 {
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 48px;
+
+    line-height: 1.05;
+
+    font-weight: 500;
+
+    letter-spacing: -1.5px;
+}
+
+.auth-heading p {
+    margin-top: 12px;
+
+    color: #77736b;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ===============================
+   FORM
+================================ */
+
+#loginForm > label {
+    display: block;
+
+    margin-bottom: 21px;
+
+    color: #36352f;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+#loginForm input[type="email"],
+#loginForm input[type="password"] {
+    width: 100%;
+    height: 52px;
+
+    margin-top: 9px;
+
+    padding: 0 15px;
+
+    border: 1px solid #d7d4cd;
+
+    outline: none;
+
+    background: white;
+
+    color: #1c1c1a;
+
+    font-size: 14px;
+
+    transition: .2s;
+}
+
+#loginForm input:focus {
+    border-color: #55534e;
+
+    box-shadow: 0 0 0 3px rgba(30,30,28,.05);
+}
+
+#loginForm input::placeholder {
+    color: #aaa69d;
+}
+
+
+/* ===============================
+   PASSWORD
+================================ */
+
+.password {
+    position: relative;
+
+    margin-top: 9px;
+}
+
+.password input {
+    margin-top: 0 !important;
+
+    padding-right: 65px !important;
+}
+
+.password button {
+    position: absolute;
+
+    right: 14px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: 0;
+
+    background: transparent;
+
+    color: #55534e;
+
+    cursor: pointer;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.password button:hover {
+    color: #111;
+}
+
+
+/* ERRORS */
+
+#emailError,
+#passwordError {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #b42318;
+
+    font-size: 11px;
+}
+
+
+/* ===============================
+   REMEMBER / FORGOT
+================================ */
+
+.form-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin: 3px 0 22px;
+
+    font-size: 11px;
+}
+
+.check {
+    display: flex !important;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 0 !important;
+
+    color: #66635d !important;
+
+    cursor: pointer;
+}
+
+.check input {
+    width: 14px;
+    height: 14px;
+
+    accent-color: #1c1c1a;
+}
+
+.form-row a {
+    color: #55534e;
+
+    text-decoration: underline;
+
+    text-underline-offset: 3px;
+}
+
+
+/* ===============================
+   SIGN IN BUTTON
+================================ */
+
+.submit {
+    width: 100%;
+    height: 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    border: none;
+
+    background: #1c1c1a;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+.submit:hover {
+    background: #373733;
+}
+
+.submit b {
+    font-size: 18px;
+
+    font-weight: 400;
+}
+
+#status {
+    min-height: 20px;
+
+    margin-top: 10px;
+
+    font-size: 12px;
+}
+
+
+/* ===============================
+   GOOGLE DIVIDER
+================================ */
+
+.google-divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 24px 0;
+
+    color: #99958d;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.google-divider::before,
+.google-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #ddd9d1;
+}
+
+
+/* ===============================
+   GOOGLE BUTTON
+================================ */
+
+.google-btn {
+    width: 100%;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    border: 1px solid #d3d0c8;
+
+    background: #fff;
+
+    color: #222;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: .2s;
+}
+
+.google-btn:hover {
+    background: #f2f1ed;
+
+    border-color: #aaa69e;
+}
+
+.google-icon {
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.google-icon img {
+    width: 20px;
+    height: 20px;
+
+    display: block;
+}
+
+
+/* ===============================
+   DEMO ACCOUNT
+================================ */
+
+.demo {
+    margin-top: 25px;
+
+    padding: 18px;
+
+    border: 1px solid #dedbd3;
+
+    background: #efede7;
+}
+
+.demo > span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #77736b;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.demo b {
+    display: block;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 17px;
+
+    font-weight: 500;
+}
+
+.demo p {
+    margin: 5px 0 12px;
+
+    color: #77736b;
+
+    font-size: 11px;
+}
+
+.demo button {
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #222;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-decoration: underline;
+
+    text-underline-offset: 3px;
+}
+
+
+/* ===============================
+   SIGNUP
+================================ */
+
+.bottom-copy {
+    margin-top: 28px;
+
+    text-align: center;
+
+    color: #77736b;
+
+    font-size: 11px;
+}
+
+.bottom-copy a {
+    color: #222;
+
+    font-weight: 700;
+
+    text-decoration: underline;
+
+    text-underline-offset: 3px;
+}
+
+
+/* ===============================
+   FOOTER
+================================ */
+
+.auth-side footer {
+    padding: 22px;
+
+    border-top: 1px solid #e4e1da;
+
+    color: #99958d;
+
+    text-align: center;
+
+    font-size: 10px;
+}
+
+
+/* ===============================
+   TABLET
+================================ */
+
+@media (max-width: 1000px) {
+
+    .auth-layout {
+        grid-template-columns: 44% 56%;
+    }
+
+    .auth-box {
+        padding: 45px 35px;
+    }
+
+    .image-copy h1 {
+        font-size: 50px;
+    }
+
+}
+
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 760px) {
+
+    .auth-layout {
+        display: block;
+    }
+
+    .auth-image {
+        display: none;
+    }
+
+    .auth-side {
+        min-height: 100vh;
+    }
+
+    .auth-box {
+        max-width: 520px;
+
+        margin: 0 auto;
+
+        padding: 35px 25px 45px;
+    }
+
+    .mobile-brand {
+        display: block;
+    }
+
+    .auth-heading h2 {
+        font-size: 42px;
+    }
+
+}
+
+
+/* ===============================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 420px) {
+
+    .auth-box {
+        padding: 28px 20px 35px;
+    }
+
+    .auth-heading h2 {
+        font-size: 38px;
+    }
+
+    .form-row {
+        gap: 12px;
+    }
+
+}

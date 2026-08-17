@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Panel — Humara Ghar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><b>HG</b><div><strong>humara ghar</strong><small>ADMIN CONSOLE</small></div></div>
+  <nav>
+    <button class="nav active" data-section="dashboard">⌂ Dashboard</button>
+    <button class="nav" data-section="buyers">◉ Buyers</button>
+    <button class="nav" data-section="tenants">◉ Tenants</button>
+    <button class="nav" data-section="sellers">◉ Sellers</button>
+    <button class="nav" data-section="properties">⌂ Properties</button>
+    <button class="nav" data-section="inquiries">↗ Inquiries</button>
+    <button class="nav" data-section="appointments">□ Appointments</button>
+    <button class="nav" data-section="photos">▧ Photos & Media</button>
+    <button class="nav" data-section="documents">▤ Documents</button>
+  </nav>
+  <div class="bottom"><button class="nav" data-section="settings">⚙ Settings</button><button class="logout" id="logout">Sign out</button></div>
+</aside>
+
+<main>
+<header class="topbar">
+  <button id="menu" class="menu">☰</button>
+  <div><small>HUMARA GHAR / ADMIN</small><h1 id="title">Dashboard</h1></div>
+  <div class="admin"><i>A</i><div><b>Admin</b><small id="email">Checking account…</small></div></div>
+</header>
+
+<div id="loading" class="loading">Loading data…</div>
+
+<section id="dashboard" class="page">
+  <div class="intro"><div><small>OVERVIEW</small><h2>Good morning, Admin.</h2><p>Everything happening across Humara Ghar, in one place.</p></div><button id="refresh">↻ Refresh</button></div>
+  <div class="stats">
+    <div><small>Total users</small><strong id="totalUsers">0</strong><span>Registered accounts</span></div>
+    <div><small>Buyers</small><strong id="buyersCount">0</strong><span>Property buyers</span></div>
+    <div><small>Tenants</small><strong id="tenantsCount">0</strong><span>Rental users</span></div>
+    <div><small>Sellers</small><strong id="sellersCount">0</strong><span>Property sellers</span></div>
+    <div><small>Properties</small><strong id="propertiesCount">0</strong><span>Total listings</span></div>
+    <div><small>Inquiries</small><strong id="inquiriesCount">0</strong><span>Property inquiries</span></div>
+  </div>
+  <div class="two">
+    <div class="panel"><div class="panel-head"><div><small>RECENT USERS</small><h3>Latest registrations</h3></div><button data-go="buyers">View →</button></div><div id="recentUsers"></div></div>
+    <div class="panel"><div class="panel-head"><div><small>PROPERTY ACTIVITY</small><h3>Latest listings</h3></div><button data-go="properties">View →</button></div><div id="recentProperties"></div></div>
+  </div>
+</section>
+
+<section id="buyers" class="page hidden"><div class="heading"><div><small>USERS / BUYERS</small><h2>Buyers</h2></div><input data-filter="buyersTable" placeholder="Search buyers…"></div><div class="panel" id="buyersTable"></div></section>
+<section id="tenants" class="page hidden"><div class="heading"><div><small>USERS / TENANTS</small><h2>Tenants</h2></div><input data-filter="tenantsTable" placeholder="Search tenants…"></div><div class="panel" id="tenantsTable"></div></section>
+<section id="sellers" class="page hidden"><div class="heading"><div><small>USERS / SELLERS</small><h2>Sellers</h2></div><input data-filter="sellersTable" placeholder="Search sellers…"></div><div class="panel" id="sellersTable"></div></section>
+<section id="properties" class="page hidden"><div class="heading"><div><small>LISTINGS</small><h2>Properties</h2></div><input data-filter="propertiesTable" placeholder="Search properties…"></div><div class="panel" id="propertiesTable"></div></section>
+<section id="inquiries" class="page hidden"><div class="heading"><div><small>LEADS</small><h2>Inquiries</h2></div></div><div class="panel" id="inquiriesTable"></div></section>
+<section id="appointments" class="page hidden"><div class="heading"><div><small>VISITS</small><h2>Appointments</h2></div></div><div class="panel" id="appointmentsTable"></div></section>
+<section id="photos" class="page hidden"><div class="heading"><div><small>MEDIA</small><h2>Photos & Media</h2></div></div><div class="panel"><div id="photosTable" class="media"></div></div></section>
+<section id="documents" class="page hidden"><div class="heading"><div><small>FILES</small><h2>Documents</h2></div></div><div class="panel" id="documentsTable"></div></section>
+<section id="settings" class="page hidden"><div class="heading"><div><small>SYSTEM</small><h2>Settings</h2></div></div><div class="panel settings"><h3>Admin access</h3><p>This panel reads Firebase data. For production, restrict it with Firebase Authentication + admin custom claims / secure Firestore Rules. Never trust a frontend-only admin flag.</p></div></section>
+</main>
+</div>
+
+<div id="shade" class="shade hidden"></div>
+<aside id="drawer" class="drawer"><button id="closeDrawer">×</button><div id="drawerContent"></div></aside>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
